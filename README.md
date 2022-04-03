@@ -1,7 +1,7 @@
 # qmk_container [![Docker Image CI](https://github.com/jsanchez0x/qmk_container/actions/workflows/docker-image.yml/badge.svg)](https://github.com/jsanchez0x/qmk_container/actions/workflows/docker-image.yml) [![Generic badge](https://img.shields.io/badge/Docker-Hub-blue.svg)](https://hub.docker.com/r/jsanchez0x/qmk_container)
 
 
-Dockerfile to generate a container with everything needed to use QMK.
+Dockerfile to generate a container with everything needed to use QMK. The image size is 4.97GB.
 
 ## Get the image
 ### OPTION 1: Building the image
