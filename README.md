@@ -20,4 +20,3 @@ qmk setup
 
 ## Credits
 Official [QMK base container](https://github.com/qmk/qmk_base_container)
-
