@@ -16,7 +16,6 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     dfu-programmer \
     dfu-util \
     dos2unix \
-    ca-certificates \
     gcc \
     gcc-arm-none-eabi \
     gcc-avr \
@@ -42,10 +41,10 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     rm -rf /var/lib/apt/lists/*
     
 # Install optionals emulation utils
-RUN apt-get update && apt-get install --no-install-recommends -y \  
-    binfmt-support \
-    qemu \
-    qemu-user-static 
+#RUN apt-get update && apt-get install --no-install-recommends -y \  
+#    binfmt-support \
+#    qemu \
+#    qemu-user-static 
 
 # Install python packages
 RUN python3 -m pip install --upgrade pip setuptools wheel
