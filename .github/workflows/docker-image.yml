@@ -22,6 +22,7 @@ jobs:
         password: ${{secrets.DOCKER_PASSWORD}}
     
     - name: Docker Metadata action
+      id: meta
       uses: docker/metadata-action@v3.7.0
       with:
         images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
