@@ -1,4 +1,4 @@
-# qmk_container [![Docker Image CI](https://github.com/jsanchez0x/qmk_container/actions/workflows/docker-image.yml/badge.svg)](https://github.com/jsanchez0x/qmk_container/actions/workflows/docker-image.yml) [![Generic badge](https://img.shields.io/badge/Docker-Hub-blue.svg)](https://hub.docker.com/r/jsanchez0x/qmk_container)
+# qmk_container [![Docker Image CI](https://github.com/jsanchez0x/qmk_container/actions/workflows/docker-image.yml/badge.svg)](https://github.com/jsanchez0x/qmk_container/actions/workflows/docker-image.yml) [![Generic badge](https://img.shields.io/badge/Docker-Hub-blue.svg?logo=docker&logoColor=white)](https://hub.docker.com/r/jsanchez0x/qmk_container)
 
 
 Dockerfile to generate a container with everything needed to use QMK(*Quantum Mechanical Keyboard*). The final image stimated size is around 5GB.
