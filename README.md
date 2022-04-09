@@ -4,16 +4,16 @@
 Dockerfile to generate a container with everything needed to use QMK(*Quantum Mechanical Keyboard*). The final image stimated size is around 5GB.
 
 ## Get the image
-### OPTION 1: Building the image manually
-Recommended for use in non-amd64 operating systems. Or you can use option 2 with some emulation system like [Binfmt](https://github.com/tonistiigi/binfmt).
+
+### OPTION 1: Pulling from Docker Hub (*recommended*)
+```bash
+docker pull jsanchez0x/qmk_container
+```
+
+### OPTION 2: Building the image manually
 ```bash
 git clone https://github.com/jsanchez0x/qmk_container.git
 docker build --rm --tag qmk_container:1.0 qmk_container
-```
-
-### OPTION 2: Pulling from Docker Hub
-```bash
-docker pull jsanchez0x/qmk_container
 ```
 
 ## Runing the container with shared folder
