@@ -19,7 +19,7 @@ docker build --rm --tag qmk_container:1.0 qmk_container
 ## Runing the container with shared folder
 This option is interesting for sharing files between the host machine and the container. For example, you can have the project created on the host machine and use the container to generate firmware on the host machine too.
 ```bash
-docker run --rm -it -v $(pwd):/shared_folder qmk_container:1.0
+docker run --rm -it -v $(pwd):/shared_folder --name qmk_container jsanchez0x/qmk_container:latest
 ```
 
 ## First steps inside the container
