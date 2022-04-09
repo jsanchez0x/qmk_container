@@ -1,5 +1,8 @@
 FROM debian:11-slim
 
+# Set the default location for qmk_firmware
+ENV QMK_HOME /qmk_firmware
+
 # Install basic utils
 RUN apt-get update && apt-get install --no-install-recommends -y \
     autoconf \
@@ -36,7 +39,6 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     teensy-loader-cli \
     texinfo \
     unzip \
-    wget \
     zip && \
     rm -rf /var/lib/apt/lists/*
     
@@ -47,15 +49,10 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 #    qemu-user-static 
 
 # Install python packages
-RUN python3 -m pip install --upgrade pip setuptools wheel
-RUN python3 -m pip install nose2 yapf qmk
+RUN python3 -m pip install --upgrade pip setuptools wheel && \
+    python3 -m pip install nose2 yapf qmk
 
-# Set the default location for qmk_firmware
-ENV QMK_HOME /qmk_firmware
-
-# Run initial QMK setup
-RUN qmk setup --yes
-
-# Set udev rules
-RUN mkdir -p /etc/udev/rules.d/ &&\
+# QMK Setup
+RUN qmk setup --yes && \
+    mkdir -p /etc/udev/rules.d/ && \
     cp $QMK_HOME/util/udev/50-qmk.rules /etc/udev/rules.d/
