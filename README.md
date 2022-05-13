@@ -29,7 +29,7 @@ mkdir -p qmk/firmwares qmk/keyboards
 ### 2.- Clone QMK firmware repository
 You need to have the source code files. You can get them from the [official QMK repository](https://github.com/qmk/qmk_firmware) (keyboards directory) and copy it into the $HOME/qmk/keyboards/ directory.
 
-For example.
+For example:
 ```bash
 git clone https://github.com/qmk/qmk_firmware.git
 cp -r qmk_firmware/keyboards/ymdk/wings $HOME/qmk/keyboards/
@@ -48,9 +48,9 @@ docker run --rm -it \
 ```
 
 The keyboard and keymap will be requested. For example:
-> Keyboard (i.e. kbdfans/kbd67/mkiirgb/v2):
-> **ymdk/wings**
-> Keymap (i.e. via):
+> Keyboard (i.e. kbdfans/kbd67/mkiirgb/v2):  
+> **ymdk/wings**  
+> Keymap (i.e. via):  
 >**default**
 >
 >echo "Executing compilation..."
