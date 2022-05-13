@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "Keyboard (i.e. kbdfans/kbd67/mkiirgb/v2):"
+read keyboard
+echo "Keymap (i.e. via):"
+read keymap
+
+echo "Executing compilation..."
+
+qmk compile -kb $keyboard -km $keymap

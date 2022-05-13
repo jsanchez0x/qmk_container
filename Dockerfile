@@ -1,4 +1,6 @@
-FROM debian:11-slim
+FROM debian:stable-slim
+
+LABEL maintainer="Jorge Sánchez <hola@jsanchez.me>"
 
 # Set the default location for qmk_firmware
 ENV QMK_HOME /qmk_firmware
@@ -42,17 +44,15 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     zip && \
     rm -rf /var/lib/apt/lists/*
     
-# Install optionals emulation utils
-#RUN apt-get update && apt-get install --no-install-recommends -y \  
-#    binfmt-support \
-#    qemu \
-#    qemu-user-static 
+ADD ./bin /usr/local/bin
+RUN chmod a+x /usr/local/bin/*
 
 # Install python packages
-RUN python3 -m pip install --upgrade pip setuptools wheel && \
-    python3 -m pip install nose2 yapf qmk
+RUN python3 -m pip install --no-cache-dir --upgrade pip setuptools wheel && \
+    python3 -m pip install --no-cache-dir nose2 yapf qmk
 
 # QMK Setup
 RUN qmk setup --yes && \
     mkdir -p /etc/udev/rules.d/ && \
-    cp $QMK_HOME/util/udev/50-qmk.rules /etc/udev/rules.d/
+    cp $QMK_HOME/util/udev/50-qmk.rules /etc/udev/rules.d/ && \
+    rm -rf $QMK_HOME/keyboards/*
