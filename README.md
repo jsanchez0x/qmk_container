@@ -14,7 +14,7 @@ docker pull jsanchez0x/qmk_container
 ### OPTION 2: Building the image manually
 ```bash
 git clone https://github.com/jsanchez0x/qmk_container.git
-docker build --rm --tag qmk_container:1.0 qmk_container
+docker build --rm --tag jsanchez0x/qmk_container:latest qmk_container
 ```
 
 
@@ -44,7 +44,7 @@ docker run --rm -it \
         --name qmk_container \
         -v $HOME/qmk/keyboards/:/qmk_firmware/keyboards/ \
         -v $HOME/qmk/firmwares/:/qmk_firmware/.build/ \
-        qmk_container:1.0 qmk_compile
+        jsanchez0x/qmk_container:latest qmk_compile
 ```
 
 The keyboard and keymap will be requested. For example:
