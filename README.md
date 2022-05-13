@@ -48,14 +48,12 @@ docker run --rm -it \
 ```
 
 The keyboard and keymap will be requested. For example:
-```
-Keyboard (i.e. kbdfans/kbd67/mkiirgb/v2):
-**ymdk/wings**
-Keymap (i.e. via):
-**default**
-
-echo "Executing compilation..."
-```
+> Keyboard (i.e. kbdfans/kbd67/mkiirgb/v2):
+> **ymdk/wings**
+> Keymap (i.e. via):
+>**default**
+>
+>echo "Executing compilation..."
 
 
 ## More info
