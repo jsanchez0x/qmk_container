@@ -7,4 +7,5 @@ read keymap
 
 echo "Executing compilation..."
 
+source .venv/bin/activate
 qmk compile -kb $keyboard -km $keymap

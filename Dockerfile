@@ -17,7 +17,6 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     bzip2 \
     ca-certificates \
     clang-format \
-    clang-format-11 \
     dfu-programmer \
     dfu-util \
     dos2unix \
@@ -36,6 +35,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     picolibc-riscv64-unknown-elf \
     python3 \
     python3-pip \
+    python3-venv \
     software-properties-common \
     tar \
     teensy-loader-cli \
@@ -43,16 +43,22 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     unzip \
     zip && \
     rm -rf /var/lib/apt/lists/*
-    
-ADD ./bin /usr/local/bin
-RUN chmod a+x /usr/local/bin/*
 
-# Install python packages
-RUN python3 -m pip install --no-cache-dir --upgrade pip setuptools wheel && \
+# Configure the Python virtual environment
+RUN python3 -m venv .venv
+
+# Install Python packages
+RUN . .venv/bin/activate && \
+    python3 -m pip install --no-cache-dir --upgrade pip setuptools wheel && \
     python3 -m pip install --no-cache-dir nose2 yapf qmk
 
 # QMK Setup
-RUN qmk setup --yes && \
+RUN . .venv/bin/activate && \
+    qmk setup --yes && \
     mkdir -p /etc/udev/rules.d/ && \
     cp $QMK_HOME/util/udev/50-qmk.rules /etc/udev/rules.d/ && \
     rm -rf $QMK_HOME/keyboards/*
+
+# Add custom script to compile firmwares
+ADD ./bin /usr/local/bin
+RUN chmod a+x /usr/local/bin/*
